@@ -10,9 +10,8 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-local plugins = {
-  "sainnhe/everforest",
-  { "sainnhe/everforest", event = "VeryLazy"}
+plugins = {
+  -- Somehow the string to indicate a folder doesn't work. I'll figure it out latter
+  require "user/plugins/colorscheme",
 }
-local opts = {}
-require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins)
