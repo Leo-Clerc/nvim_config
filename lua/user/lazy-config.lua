@@ -10,8 +10,4 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-plugins = {
-  -- Somehow the string to indicate a folder doesn't work. I'll figure it out latter
-  require "user/plugins/colorscheme",
-}
-require("lazy").setup(plugins)
+require("lazy").setup("plugins")
