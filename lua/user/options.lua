@@ -2,6 +2,7 @@ local options = {
   backup = false,
   swapfile = false,
   mouse = "a",
+  autoindent = true,
   smartindent = true,
   showtabline = 0,
   expandtab = true,
@@ -12,6 +13,7 @@ local options = {
   termguicolors = true,
   numberwidth = 4,
   wrap = false,
+  fillchars = { eob = " "},
 }
 
 for k, v in pairs(options) do
