@@ -8,8 +8,25 @@ return function()
     return
   end
   -- Change the logo here
-  local logo = { 
-
+  local logo = {
+    "                             ^                        ",
+    "                            / \\                      ",
+    "                           /   \\                     ",
+    "                          /     \\                    ",
+    "                         /       \\                   ",
+    "                        /         \\                  ",
+    "                       /           \\                 ",
+    "                      /             \\                ",
+    "                     /               \\               ",
+    "                    /_________________\\              ",
+    "                   / \\               / \\            ",
+    "                  /   \\             /   \\           ",
+    "                 /     \\           /     \\          ",
+    "                /       \\         /       \\         ",
+    "               /         \\       /         \\        ",
+    "              /           \\     /           \\       ",
+    "             /             \\   /             \\      ",
+    "            /_______________\\ /_______________\\     ",
   }
   local function footer()
     --local total_plugins =
@@ -18,7 +35,7 @@ return function()
     local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
     return datetime .. "   " .. " plugins" .. nvim_version_info
 end
-  -- dashboard.section.header.val = logo
+  dashboard.section.header.val = logo
   dashboard.section.footer.val = footer()
   alpha.setup(dashboard.config)
 end
