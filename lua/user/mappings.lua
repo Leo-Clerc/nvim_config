@@ -12,7 +12,7 @@ vim.g.maplocalleader = " "
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
 
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -44,3 +44,13 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n","<C-u>", "<C-u>zz", opts)
 keymap("n","<C-d>", "<C-d>zz", opts)
 keymap("n","<C-d>", "<C-d>zz", opts)
+
+-- Nvim tree :
+local nvim_tree_available, _ = pcall(require, "plugins.nvim-tree")
+if nvim_tree_available then
+  keymap('n', '<Leader>e', ":NvimTreeToggle<CR>", opts)
+  keymap('n', '<Leader>o', ":NvimTreeFocus<CR>", opts)
+else
+  vim.notify("nvim-tree isn't available")
+  return
+end
