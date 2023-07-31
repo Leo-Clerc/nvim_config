@@ -65,6 +65,8 @@ return function()
         -- Kind icons
         -- vim_item.kin = string.format("%s", kind_icons[vim_item.kind])
         vim_item.menu = ({
+          nvim_lsp = "[LSP]",
+          nvim_lua = "[LUA]",
           luasnip = "[Snippet]",
           buffer = "[Buffer]",
           path = "[Path]",
@@ -73,6 +75,8 @@ return function()
       end,
     },
     sources = {
+      { name = "nvim_lsp" },
+      { name = "nvim_lua" },
       { name = "luasnip" },
       { name = "buffer" },
       { name = "path" },
