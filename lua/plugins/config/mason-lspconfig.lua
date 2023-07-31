@@ -5,8 +5,11 @@ return function()
   end
 
   local opts = {
-    ensure_installed = require "plugins.config.lsp.settings.server_list"
+    ensure_installed = require "lsp.server_list"
   } 
   mason_lspconfig.setup(opts)
+
+  handlers = require "lsp.handlers"
+  mason_lspconfig.setup_handlers(handlers)
 end
 

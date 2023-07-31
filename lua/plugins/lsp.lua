@@ -8,6 +8,7 @@ return {
           "LspInstall",
           "LspUninstall",
         },
+        config = require "plugins.config.mason-lspconfig"
       },
     },
     config = require "plugins.config.lspconfig"
