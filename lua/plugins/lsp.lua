@@ -10,7 +10,7 @@ return {
         },
       },
     },
-    config = require "plugins.config.lsp"
+    config = require "plugins.config.lspconfig"
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -18,5 +18,6 @@ return {
       "jay-babu/mason-null-ls.nvim",
       cmd = { "NullLsInstall", "NullLsUninstall" }
     },
+    config = require "plugins.config.null-ls"
   }
 }

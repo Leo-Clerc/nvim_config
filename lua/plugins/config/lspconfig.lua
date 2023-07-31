@@ -6,8 +6,6 @@ return function()
   end
 
   lspconfig.setup()
-  require "plugins.config.lsp.mason-lspconfig"
-  require "plugins.config.lsp.null-ls"
 end
 
 
