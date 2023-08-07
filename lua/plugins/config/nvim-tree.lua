@@ -64,8 +64,59 @@ return function()
 	  vim.keymap.set('n', '<2-LeftMouse>',  api.node.open.edit,           opts('Open'))
 	  vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
     end
+
+    vim.api.nvim_create_autocmd("QuitPre", {
+      callback = function()
+        local tree_wins = {}
+        local floating_wins = {}
+        local wins = vim.api.nvim_list_wins()
+        for _, w in ipairs(wins) do
+          local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
+          if bufname:match("NvimTree_") ~= nil then
+            table.insert(tree_wins, w)
+          end
+          if vim.api.nvim_win_get_config(w).relative ~= '' then
+            table.insert(floating_wins, w)
+          end
+        end
+        if 1 == #wins - #floating_wins - #tree_wins then
+          -- Should quit, so we close all invalid windows.
+          for _, w in ipairs(tree_wins) do
+            vim.api.nvim_win_close(w, true)
+          end
+        end
+      end
+    })
+
         require("nvim-tree").setup {
 		on_attach = my_on_attach,
+    view = {
+      centralize_selection = true,
+      width = 30,
+    },
+    actions = {
+      open_file = {
+        quit_on_open = true,
+        -- window_picker = {
+        --   enabled = true,
+        -- },
+      },
+      expand_all = {
+        exclude = {
+          ".git",
+          ".node_modules",
+        }
+      }
+    },
+    renderer = {
+      group_empty = true,
+      root_folder_label = false,
+      indent_width = 1, 
+      icons = {
+        -- TODO: Put some cool icons
+        glyphs = {}
+      }
+    }
 	}
     end
 
