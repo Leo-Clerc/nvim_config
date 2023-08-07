@@ -1,14 +1,7 @@
 return function()
-  local status_treesitter_ok, treesitter = pcall(require, "nvim-treesitter")
+  local status_treesitter_ok, treesitter = pcall(require, "nvim-treesitter.configs")
   opts = {
-    ensure_installed = {
-      "c",
-      "lua",
-      "vim",
-      "vimdoc",
-      "query",
-      "javascript",
-    },
+    ensure_installed = "all",
     sync_install = false,
     auto_install = true,
     highlight = {
