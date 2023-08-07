@@ -28,6 +28,11 @@ return function()
     "             /             \\   /             \\      ",
     "            /_______________\\ /_______________\\     ",
   }
+  -- TODO: Add other buttons. One with telescope, I guess ?
+  local buttons = {
+    dashboard.button( "e", "o New file" , ":ene <BAR> startinsert <CR>"),
+    dashboard.button( "q", "x Quit", ":qa<CR>"),
+  }
   local function footer()
     --local total_plugins =
     local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
@@ -36,6 +41,7 @@ return function()
     return datetime .. "   " .. " plugins" .. nvim_version_info
 end
   dashboard.section.header.val = logo
+  dashboard.section.buttons.val = buttons
   dashboard.section.footer.val = footer()
   alpha.setup(dashboard.config)
 end
