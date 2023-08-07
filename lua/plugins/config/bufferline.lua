@@ -4,7 +4,11 @@ return function()
     return
   end
   opts = {
-
+    options = {
+      mode = "buffers",
+      style_preset = bufferline.style_preset.minimal,
+    },
   }
+  bufferline.setup(opts)
 end
 
