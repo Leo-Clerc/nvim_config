@@ -54,3 +54,6 @@ else
   vim.notify("nvim-tree isn't available")
   return
 end
+
+-- Telescope
+keymap('n', '<Leader>ff', ':lua require("telescope.builtin").find_files()<CR>', opts)
