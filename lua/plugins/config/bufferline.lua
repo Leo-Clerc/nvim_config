@@ -6,7 +6,7 @@ return function()
   opts = {
     options = {
       mode = "buffers",
-      style_preset = bufferline.style_preset.minimal,
+      style_preset = bufferline.style_preset.default,
     },
   }
   bufferline.setup(opts)
