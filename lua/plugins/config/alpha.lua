@@ -8,6 +8,30 @@ return function()
     return
   end
   -- Change the logo here
+  local triforce = {
+    "                                                      ",
+    "                             ██                       ",
+    "                            ████                      ",
+    "                           ██████                     ",
+    "                          ████████                    ",
+    "                         ██████████                   ",
+    "                        ████████████                  ",
+    "                       ██████████████                 ",
+    "                      ████████████████                ",
+    "                     ██████████████████               ",
+    "                    ████████████████████              ",
+    "                                                    ",
+    "                  ██                  ██            ",
+    "                 ████                ████           ",
+    "                ██████              ██████          ",
+    "               ████████            ████████         ",
+    "              ██████████          ██████████        ",
+    "             ████████████        ████████████       ",
+    "            ██████████████      ██████████████      ",
+    "           ████████████████    ████████████████     ",
+    "          ██████████████████  ██████████████████    ",
+    "         ████████████████████████████████████████   ",
+ }
   local logo = {
     "                             ^                        ",
     "                            / \\                      ",
@@ -40,7 +64,7 @@ return function()
     local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
     return datetime .. "   " .. " plugins" .. nvim_version_info
 end
-  dashboard.section.header.val = logo
+  dashboard.section.header.val = triforce
   dashboard.section.buttons.val = buttons
   dashboard.section.footer.val = footer()
   alpha.setup(dashboard.config)
