@@ -114,7 +114,31 @@ return function()
       indent_width = 1, 
       icons = {
         -- TODO: Put some cool icons
-        glyphs = {}
+          glyphs = {
+            default = "",
+            symlink = "",
+            bookmark = "󰆤",
+            modified = "●",
+            folder = {
+              arrow_closed = "",
+              arrow_open = "",
+              default = "",
+              open = "",
+              empty = "",
+              empty_open = "",
+              symlink = "",
+              symlink_open = "",
+            },
+            git = {
+              unstaged = "✗",
+              staged = "✓",
+              unmerged = "",
+              renamed = "➜",
+              untracked = "★",
+              deleted = "",
+              ignored = "◌",
+            },
+          },
       }
     }
 	}
