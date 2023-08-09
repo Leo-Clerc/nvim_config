@@ -1,3 +1,3 @@
 return {
-  "sainhe/everforest",
+  "sainnhe/everforest",
 }
