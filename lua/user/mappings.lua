@@ -56,4 +56,9 @@ else
 end
 
 -- Telescope
-keymap('n', '<Leader>ff', ':lua require("telescope.builtin").find_files()<CR>', opts)
+keymap("n", '<Leader>ff', ':lua require("telescope.builtin").find_files()<CR>', opts)
+keymap("n", "<Leader>fw", ":Telescope live_grep<cr>", opts)
+keymap("n", "<Leader>fgf", ':lua require("telescope.builtin").git_files()<CR>', opts)
+keymap("n", "<Leader>fgC", ':lua require("telescope.builtin").git_commits()<CR>', opts)
+keymap("n", "<Leader>fgc", ':lua require("telescope.builtin").git_bcommits()<CR>', opts)
+keymap("n", "<Leader>fb", ':lua require("telescope.builtin").buffers()<CR>', opts)
