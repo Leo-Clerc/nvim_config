@@ -3,10 +3,13 @@ return function()
   if not status_telescope_ok then
     vim.notify("Telescope isn't ok")
   end
-  opts = {
+  local opts = {
     defaults = {
       mappings = {
 
+      },
+      preview = {
+        treesitter = true,
       },
     },
   }
