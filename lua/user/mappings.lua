@@ -62,3 +62,15 @@ keymap("n", "<Leader>fgf", ':lua require("telescope.builtin").git_files()<CR>', 
 keymap("n", "<Leader>fgC", ':lua require("telescope.builtin").git_commits()<CR>', opts)
 keymap("n", "<Leader>fgc", ':lua require("telescope.builtin").git_bcommits()<CR>', opts)
 keymap("n", "<Leader>fb", ':lua require("telescope.builtin").buffers()<CR>', opts)
+
+-- Fugitive
+keymap("n", "<Leader>gg", ":vert bo G<CR>", opts)
+keymap("n", "<Leader>g", ":bo G blame<CR>", opts)
+keymap("n", "<Leader>gl", ":G log<CR>", opts)
+keymap("n", "<Leader>gss", ":G stash<CR>", opts)
+keymap("n", "<Leader>gsp", ":G stash -p<CR>", opts)
+keymap("n", "<Leader>gcc", ":G commit<CR>", opts)
+keymap("n", "<Leader>gce", ":G commit --amend<CR>", opts)
+keymap("n", "<Leader>gcm", ":G commit --amend --no-edit<CR>", opts)
+keymap("n", "<Leader>gpp", ":G push<CR>", opts)
+keymap("n", "<Leader>gpl", ":G pull<CR>", opts)
