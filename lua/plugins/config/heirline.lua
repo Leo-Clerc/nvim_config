@@ -89,6 +89,7 @@ return function()
       end),
     },
   }
+  ViMode = utils.insert(ViMode, {provider = " ", hl = { fl = "gray" } })
   local FileNameBlock = {
       -- let's first set up some attributes needed by this component and it's children
       init = function(self)
@@ -96,20 +97,19 @@ return function()
       end,
   }
 
-  -- Table for file icon in status line. I don't like it, might removve this code later.
-  -- local FileIcon = {
-  --     init = function(self)
-  --         local filename = self.filename
-  --         local extension = vim.fn.fnamemodify(filename, ":e")
-  --         self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
-  --     end,
-  --     provider = function(self)
-  --         return self.icon and (self.icon .. " ")
-  --     end,
-  --     hl = function(self)
-  --         return { fg = self.icon_color }
-  --     end
-  -- }
+  local FileIcon = {
+      init = function(self)
+          local filename = self.filename
+          local extension = vim.fn.fnamemodify(filename, ":e")
+          self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+      end,
+      provider = function(self)
+          return self.icon and (self.icon .. " ")
+      end,
+      hl = function(self)
+          return { fg = self.icon_color }
+      end
+  }
 
   local FileName = {
       provider = function(self)
@@ -163,6 +163,8 @@ return function()
   FileNameBlock = utils.insert(FileNameBlock,
       -- FileIcon,
       utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
+      utils.insert(FileNameBlock, {provider = " ", hl = { fg = "gray" } }),
+
       FileFlags,
       { provider = '%<'} -- this means that the statusline is cut here when there's not enough space
   )
@@ -176,6 +178,21 @@ return function()
 
   local Ruler = {
     provider = "%7(%l/%3L%):%2c %P",
+    hl = { fg = "gray" }
+  }
+
+  local  LSPActive = {
+    condition = conditions.lsp_attached,
+    update = {'LspAttach', 'LspDetach'},
+
+    provider = function()
+      local names = {}
+      for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+        table.insert(names, server.name)
+      end
+      return " [" .. table.concat(names, " ") .. "]"
+    end,
+    hl = { fg = "gray", bold = true },
   }
 
   local Diagnostics = {
@@ -231,18 +248,176 @@ return function()
       },
   }
   local statusline = {
-    FileNameBlock,
+    flexible = 1,
+    {
     ViMode,
+    FileNameBlock,
     -- FileType,
     Ruler,
-    Diagnostics,
+    LSPActive,
+    -- Diagnostics,
+    },
+  }
+
+--   local TablineBufnr = {
+--     provider = function(self)
+--         return tostring(self.bufnr) .. ". "
+--     end,
+--     hl = "Comment",
+-- }
+
+  local TablineFileName = {
+      provider = function(self)
+          local filename = self.filename
+          filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
+          return filename
+      end,
+      hl = function(self)
+          return { bold = self.is_active or self.is_visible, italic = true }
+      end,
+  }
+
+  local TablineFileFlags = {
+      {
+          condition = function(self)
+              return vim.api.nvim_buf_get_option(self.bufnr, "modified")
+          end,
+          provider = "[+]",
+          hl = { fg = "gray" },
+      },
+      {
+          condition = function(self)
+              return not vim.api.nvim_buf_get_option(self.bufnr, "modifiable")
+                  or vim.api.nvim_buf_get_option(self.bufnr, "readonly")
+          end,
+          provider = function(self)
+              if vim.api.nvim_buf_get_option(self.bufnr, "buftype") == "terminal" then
+                  return "  "
+              else
+                  return ""
+              end
+          end,
+          hl = { fg = "gray" },
+      },
+  }
+
+  local TablineFileNameBlock = {
+      init = function(self)
+          self.filename = vim.api.nvim_buf_get_name(self.bufnr)
+      end,
+      hl = function(self)
+          if self.is_active then
+              return "gray"
+          -- why not?
+          -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
+          --     return { fg = "gray" }
+          else
+              return "TabLine"
+          end
+      end,
+      on_click = {
+          callback = function(_, minwid, _, button)
+              if (button == "m") then -- close on mouse middle click
+                  vim.schedule(function()
+                      vim.api.nvim_buf_delete(minwid, { force = false })
+                  end)
+              else
+                  vim.api.nvim_win_set_buf(0, minwid)
+              end
+          end,
+          minwid = function(self)
+              return self.bufnr
+          end,
+          name = "heirline_tabline_buffer_callback",
+      },
+      -- TablineBufnr,
+      FileIcon, 
+      TablineFileName,
+      TablineFileFlags,
+  }
+
+  -- a nice "x" button to close the buffer
+  local TablineCloseButton = {
+      condition = function(self)
+          return not vim.api.nvim_buf_get_option(self.bufnr, "modified")
+      end,
+      { provider = " " },
+      {
+          provider = "",
+          hl = { fg = "gray" },
+          on_click = {
+              callback = function(_, minwid)
+                  vim.schedule(function()
+                      vim.api.nvim_buf_delete(minwid, { force = false })
+                      vim.cmd.redrawtabline()
+                  end)
+              end,
+              minwid = function(self)
+                  return self.bufnr
+              end,
+              name = "heirline_tabline_close_buffer_callback",
+          },
+      },
+  }
+
+  local TablineBufferBlock = utils.surround({ "|", "" }, function(self) -- TODO: Find something to round the border, and color the "|"
+      if self.is_active then
+          return utils.get_highlight("TabLine").bg -- Yes, same color. But one day we'll put something lighter
+      else
+          return utils.get_highlight("TabLine").bg
+      end
+  end, { TablineFileNameBlock, TablineCloseButton })
+
+  local get_bufs = function()
+      return vim.tbl_filter(function(bufnr)
+          return vim.api.nvim_buf_get_option(bufnr, "buflisted")
+      end, vim.api.nvim_list_bufs())
+  end
+
+  local buflist_cache = {}
+
+  vim.api.nvim_create_autocmd({ "VimEnter", "UIEnter", "BufAdd", "BufDelete" }, {
+      callback = function()
+          vim.schedule(function()
+              local buffers = get_bufs()
+              for i, v in ipairs(buffers) do
+                  buflist_cache[i] = v
+              end
+              for i = #buffers + 1, #buflist_cache do
+                  buflist_cache[i] = nil
+              end
+
+              if #buflist_cache > 1 then
+                  vim.o.showtabline = 2 -- always
+              else
+                  vim.o.showtabline = 1 -- only when #tabpages > 1
+              end
+          end)
+      end,
+  })
+
+  local BufferLine = utils.make_buflist(
+      TablineBufferBlock,
+      { provider = " ", hl = { fg = "gray" } },
+      { provider = " ", hl = { fg = "gray" } },
+      -- out buf_func simply returns the buflist_cache
+      function()
+          return buflist_cache
+      end,
+      -- no cache, as we're handling everything ourselves
+      false
+  )
+
+  local tabline = {
+    BufferLine,
   }
 
   local opts = {
     statusline = statusline,
+    tabline = tabline,
     opts = {
       colors = colors,
-    }
+    },
   }
   heirline.setup(opts)
 end
