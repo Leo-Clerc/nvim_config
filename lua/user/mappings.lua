@@ -57,7 +57,7 @@ end
 
 -- Telescope
 keymap("n", '<Leader>ff', ':lua require("telescope.builtin").find_files()<CR>', opts)
-keymap("n", "<Leader>fw", ":Telescope live_grep<cr>", opts)
+keymap("n", "<Leader>fw", ":Telescope live_grep<CR>", opts)
 keymap("n", "<Leader>fgf", ':lua require("telescope.builtin").git_files()<CR>', opts)
 keymap("n", "<Leader>fgC", ':lua require("telescope.builtin").git_commits()<CR>', opts)
 keymap("n", "<Leader>fgc", ':lua require("telescope.builtin").git_bcommits()<CR>', opts)
@@ -65,7 +65,7 @@ keymap("n", "<Leader>fb", ':lua require("telescope.builtin").buffers()<CR>', opt
 
 -- Fugitive
 keymap("n", "<Leader>gg", ":vert bo G<CR>", opts)
-keymap("n", "<Leader>g", ":bo G blame<CR>", opts)
+keymap("n", "<Leader>gb", ":bo G blame<CR>", opts)
 keymap("n", "<Leader>gl", ":G log<CR>", opts)
 keymap("n", "<Leader>gss", ":G stash<CR>", opts)
 keymap("n", "<Leader>gsp", ":G stash -p<CR>", opts)
