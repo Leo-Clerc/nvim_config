@@ -9,6 +9,6 @@ return function()
       style_preset = bufferline.style_preset.default,
     },
   }
-  bufferline.setup(opts)
+  -- bufferline.setup(opts)
 end
 
