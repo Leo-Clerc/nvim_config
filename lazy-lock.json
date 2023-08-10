@@ -19,6 +19,7 @@
   "nvim-autopairs": { "branch": "master", "commit": "ae5b41ce880a6d850055e262d6dfebd362bb276e" },
   "nvim-cmp": { "branch": "main", "commit": "c4e491a87eeacf0408902c32f031d802c7eafce8" },
   "nvim-lspconfig": { "branch": "master", "commit": "b6091272422bb0fbd729f7f5d17a56d37499c54f" },
+  "nvim-surround": { "branch": "main", "commit": "0d6882635817a2677749a330127d12ac30a4f3c8" },
   "nvim-tree.lua": { "branch": "master", "commit": "273c1700eb68c27dce4e518efafc8144fd7ce4ab" },
   "nvim-treesitter": { "branch": "master", "commit": "6c93c86272633937090806fedb2a20fe11025876" },
   "nvim-web-devicons": { "branch": "master", "commit": "efbfed0567ef4bfac3ce630524a0f6c8451c5534" },
@@ -26,5 +27,6 @@
   "ripgrep": { "branch": "master", "commit": "61733f6378b62fa2dc2e7f3eff2f2e7182069ca9" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "9bc8237565ded606e6c366a71c64c0af25cd7a50" },
   "telescope.nvim": { "branch": "master", "commit": "dc192faceb2db64231ead71539761e055df66d73" },
+  "vim-fugitive": { "branch": "master", "commit": "b3b838d690f315a503ec4af8c634bdff3b200aaf" },
   "vim-mine-sweeping": { "branch": "main", "commit": "7db1246d8a0a0bed1dc468ea866e04afd6fbb995" }
 }
