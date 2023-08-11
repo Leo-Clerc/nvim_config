@@ -38,6 +38,7 @@ end
 
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<Space>qq", ":bdelete<CR>", opts)
 
 -- Useful miscalleneous mappings
 
@@ -74,3 +75,13 @@ keymap("n", "<Leader>gce", ":G commit --amend<CR>", opts)
 keymap("n", "<Leader>gcm", ":G commit --amend --no-edit<CR>", opts)
 keymap("n", "<Leader>gpp", ":G push<CR>", opts)
 keymap("n", "<Leader>gpl", ":G pull<CR>", opts)
+
+-- Harpoon
+keymap("n", "<Space>hh", ':lua require("harpoon.mark").add_file()<CR>' , opts)
+keymap("n", "<Space>hm", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
+keymap("n", "<Space>h&",  ':lua require("harpoon.ui").nav_file(1)<CR>', opts)
+keymap("n", "<Space>hé",  ':lua require("harpoon.ui").nav_file(2)<CR>', opts)
+keymap("n", '<Space>h"',  ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
+keymap("n", "<Space>h'",  ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
+keymap("n", "<Space>h(",  ':lua require("harpoon.ui").nav_file(5)<CR>', opts)
+keymap("n", "<Space>h-",  ':lua require("harpoon.ui").nav_file(6)<CR>', opts)
