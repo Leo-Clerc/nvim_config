@@ -35,8 +35,9 @@ return function()
   -- TODO: Add other buttons. One with telescope, I guess ?
   local buttons = {
     dashboard.button( "e", " New file" , ":ene <BAR> startinsert <CR>"),
-    dashboard.button( "SPC f f", "󰱼 Search file" , ":lua require('telescope.builtin').find_files()<CR>"),
-    dashboard.button( "SPC f w", "󰈬 Search word", ":Telescope live_grep<CR>"),
+    dashboard.button( "f f", "󰱼 Search file" , ":lua require('telescope.builtin').find_files()<CR>"),
+    dashboard.button( "f w", "󰈬 Search word", ":Telescope live_grep<CR>"),
+    dashboard.button( "h", " Harpoon menu", ':lua require("harpoon.ui").toggle_quick_menu()<CR>'),
     dashboard.button( "q", "󰩈 Quit", ":qa<CR>"),
   }
   local function footer()
