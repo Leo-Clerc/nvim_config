@@ -181,6 +181,8 @@ return function()
     hl = { fg = "gray" }
   }
 
+  Ruler = utils.insert(Ruler, {provider = " ", hl = { fg = "gray" } } )
+
   local  LSPActive = {
     condition = conditions.lsp_attached,
     update = {'LspAttach', 'LspDetach'},
@@ -199,12 +201,7 @@ return function()
 
       condition = conditions.has_diagnostics,
 
-      static = {
-          -- error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text,
-          -- warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text,
-          -- info_icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text,
-          -- hint_icon = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text,
-      },
+      static = require("lua.icons").lsp_diagnostic,
 
       init = function(self)
           self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
