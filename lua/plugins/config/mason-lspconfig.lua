@@ -4,12 +4,18 @@ return function()
     return
   end
 
+  local signs = require "icons.lsp"
+
+  for _, sign in ipairs( signs ) do
+    vim.fn.sign_define(sign.name, sign)
+  end
+
   local opts = {
     ensure_installed = require "lsp.server_list"
   } 
   mason_lspconfig.setup(opts)
 
-  handlers = require "lsp.handlers"
+  local handlers = require "lsp.handlers"
   mason_lspconfig.setup_handlers(handlers)
 end
 

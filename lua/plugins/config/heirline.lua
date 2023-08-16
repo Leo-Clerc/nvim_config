@@ -201,7 +201,12 @@ return function()
 
       condition = conditions.has_diagnostics,
 
-      static = require("lua.icons").lsp_diagnostic,
+      static = {
+        error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text,
+        warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text,
+        info_icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text,
+        hint_icon = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text,
+      },
 
       init = function(self)
           self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
@@ -238,7 +243,7 @@ return function()
           provider = function(self)
               return self.hints > 0 and (self.hint_icon .. self.hints)
           end,
-          hl = { fg = "diag_hint" },
+          hl = { fg = "gray" },
       },
       {
           provider = "]",
@@ -252,7 +257,7 @@ return function()
     -- FileType,
     Ruler,
     LSPActive,
-    -- Diagnostics,
+    Diagnostics,
     },
   }
 
