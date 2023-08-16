@@ -85,3 +85,4 @@ keymap("n", '<Space>h"',  ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
 keymap("n", "<Space>h'",  ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
 keymap("n", "<Space>h(",  ':lua require("harpoon.ui").nav_file(5)<CR>', opts)
 keymap("n", "<Space>h-",  ':lua require("harpoon.ui").nav_file(6)<CR>', opts)
+

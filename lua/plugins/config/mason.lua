@@ -14,4 +14,6 @@ return function()
       },
   }
   mason.setup(opts)
+  for _, plugin in ipairs { "mason-lspconfig"} do
+  end
 end

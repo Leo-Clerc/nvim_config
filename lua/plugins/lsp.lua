@@ -1,9 +1,10 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    event = "VeryLazy",
     dependencies = {
       {
-        "williaboman/mason-lspconfig.nvim",
+        "williamboman/mason-lspconfig.nvim",
         cmd = {
           "LspInstall",
           "LspUninstall",
