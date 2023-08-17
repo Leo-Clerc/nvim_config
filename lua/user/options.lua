@@ -1,5 +1,6 @@
 local options = {
   backup = false,
+  showmode = false,
   swapfile = false,
   mouse = "a",
   autoindent = true,
