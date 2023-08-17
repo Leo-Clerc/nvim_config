@@ -181,6 +181,8 @@ return function()
     hl = { fg = "gray" }
   }
 
+  Ruler = utils.insert(Ruler, {provider = " ", hl = { fg = "gray" } } )
+
   local  LSPActive = {
     condition = conditions.lsp_attached,
     update = {'LspAttach', 'LspDetach'},
@@ -200,10 +202,10 @@ return function()
       condition = conditions.has_diagnostics,
 
       static = {
-          -- error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text,
-          -- warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text,
-          -- info_icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text,
-          -- hint_icon = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text,
+        error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text,
+        warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text,
+        info_icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text,
+        hint_icon = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text,
       },
 
       init = function(self)
@@ -241,7 +243,7 @@ return function()
           provider = function(self)
               return self.hints > 0 and (self.hint_icon .. self.hints)
           end,
-          hl = { fg = "diag_hint" },
+          hl = { fg = "gray" },
       },
       {
           provider = "]",
@@ -255,7 +257,7 @@ return function()
     -- FileType,
     Ruler,
     LSPActive,
-    -- Diagnostics,
+    Diagnostics,
     },
   }
 
