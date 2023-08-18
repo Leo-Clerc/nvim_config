@@ -5,7 +5,14 @@ return function()
     return
   end
 
-  local opts = {}
+  local opts = {
+      { "dap-repl", "dapui_watches", "dapui_hover" },
+      {
+      sources = {
+        { name = "dap" },
+      },
+    },
+  }
 
   cmp_dap.setup(opts)
 end
