@@ -1,5 +1,6 @@
 local options = {
   backup = false,
+  showmode = false,
   swapfile = false,
   mouse = "a",
   autoindent = true,
@@ -19,3 +20,5 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+vim.loader.enable()

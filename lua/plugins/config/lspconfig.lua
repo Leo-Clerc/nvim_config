@@ -5,6 +5,7 @@ return function()
     return
   end
 
+  vim.notify("Lspconfig loaded ?")
   lspconfig.setup()
 end
 

@@ -38,6 +38,7 @@ end
 
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<Space>qq", ":bdelete<CR>", opts)
 
 -- Useful miscalleneous mappings
 
@@ -54,3 +55,34 @@ else
   vim.notify("nvim-tree isn't available")
   return
 end
+
+-- Telescope
+keymap("n", '<Leader>ff', ':lua require("telescope.builtin").find_files()<CR>', opts)
+keymap("n", "<Leader>fw", ":Telescope live_grep<CR>", opts)
+keymap("n", "<Leader>fgf", ':lua require("telescope.builtin").git_files()<CR>', opts)
+keymap("n", "<Leader>fgC", ':lua require("telescope.builtin").git_commits()<CR>', opts)
+keymap("n", "<Leader>fgc", ':lua require("telescope.builtin").git_bcommits()<CR>', opts)
+keymap("n", "<Leader>fb", ':lua require("telescope.builtin").buffers()<CR>', opts)
+
+-- Fugitive
+keymap("n", "<Leader>gg", ":vert bo G<CR>", opts)
+keymap("n", "<Leader>gb", ":bo G blame<CR>", opts)
+keymap("n", "<Leader>gl", ":G log<CR>", opts)
+keymap("n", "<Leader>gss", ":G stash<CR>", opts)
+keymap("n", "<Leader>gsp", ":G stash -p<CR>", opts)
+keymap("n", "<Leader>gcc", ":G commit<CR>", opts)
+keymap("n", "<Leader>gce", ":G commit --amend<CR>", opts)
+keymap("n", "<Leader>gcm", ":G commit --amend --no-edit<CR>", opts)
+keymap("n", "<Leader>gpp", ":G push<CR>", opts)
+keymap("n", "<Leader>gpl", ":G pull<CR>", opts)
+
+-- Harpoon
+keymap("n", "<Space>hh", ':lua require("harpoon.mark").add_file()<CR>' , opts)
+keymap("n", "<Space>hm", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
+keymap("n", "<Space>h&",  ':lua require("harpoon.ui").nav_file(1)<CR>', opts)
+keymap("n", "<Space>hé",  ':lua require("harpoon.ui").nav_file(2)<CR>', opts)
+keymap("n", '<Space>h"',  ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
+keymap("n", "<Space>h'",  ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
+keymap("n", "<Space>h(",  ':lua require("harpoon.ui").nav_file(5)<CR>', opts)
+keymap("n", "<Space>h-",  ':lua require("harpoon.ui").nav_file(6)<CR>', opts)
+
