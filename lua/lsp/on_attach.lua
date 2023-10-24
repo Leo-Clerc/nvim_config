@@ -15,7 +15,7 @@ return function(client, bufnr)
   keymap("<Leader>tld", "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", "Document symbols")
   keymap("<Leader>tlw", "<CMD>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", "Workspace symbols")
   keymap("K", "<CMD>lua vim.lsp.buf.hover()<CR>", "Hover Documentation")
-  keymap("<C-k>", "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature documentation")
+  keymap("<C-m>", "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature documentation")
   keymap("<Leader>ln", "<CMD>lua vim.diagnostic.goto_next()<CR>", "Goto next diagnostic")
   keymap("<Leader>lp", "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Goto prev diagnostic")
 
