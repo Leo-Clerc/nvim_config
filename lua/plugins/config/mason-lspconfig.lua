@@ -12,8 +12,13 @@ return function()
 
   local opts = {
     ensure_installed = require "lsp.server_list"
-  } 
+  }
   mason_lspconfig.setup(opts)
+  -- local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+  -- if not lspconfig_status_ok then
+  --   vim.notify("Problems with lspconfig")
+  --   return
+  -- end
 
   local handlers = require "lsp.handlers"
   mason_lspconfig.setup_handlers(handlers)
