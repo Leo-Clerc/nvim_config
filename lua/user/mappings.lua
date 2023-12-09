@@ -67,7 +67,6 @@ keymap("n", "<Leader>fb", ':lua require("telescope.builtin").buffers()<CR>', opt
 -- Fugitive
 keymap("n", "<Leader>gg", ":vert bo G<CR>", opts)
 keymap("n", "<Leader>gb", ":bo G blame<CR>", opts)
-keymap("n", "<Leader>gl", ":G log<CR>", opts)
 keymap("n", "<Leader>gss", ":G stash<CR>", opts)
 keymap("n", "<Leader>gsp", ":G stash -p<CR>", opts)
 keymap("n", "<Leader>gcc", ":G commit<CR>", opts)
@@ -75,6 +74,8 @@ keymap("n", "<Leader>gce", ":G commit --amend<CR>", opts)
 keymap("n", "<Leader>gcm", ":G commit --amend --no-edit<CR>", opts)
 keymap("n", "<Leader>gpp", ":G push<CR>", opts)
 keymap("n", "<Leader>gpl", ":G pull<CR>", opts)
+keymap("n", "<Leader>gll", ":vert bo G log<CR>", opts)
+keymap("n", "<Leader>gls", ":vert bo G log --oneline<CR>", opts)
 
 -- Harpoon
 keymap("n", "<Space>hh", ':lua require("harpoon.mark").add_file()<CR>' , opts)
