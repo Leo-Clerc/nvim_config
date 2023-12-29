@@ -5,15 +5,15 @@ return function()
     return
   end
 
+  local formatting = null_ls.builtins.formatting
+  local diagnostics = null_ls.builtins.diagnostics
+
   local opts_mason = {
     sources = {
-      ensure_installed = {
-        'stylua',
-        'jq',
-        'mdl',
-      },
-      automatic_installation = true,
-      handlers = {},
+      formatting.prettier.with {},
+      formatting.black.with { extra_args = { "--fast" } },
+      formatting.stylua,
+      diagnostics.flake8,
     },
   }
 

@@ -5,6 +5,7 @@ return function()
   end
 
   local opts = {
+      PATH = "prepend",
       ui = {
           icons = {
               package_installed = "✓",
