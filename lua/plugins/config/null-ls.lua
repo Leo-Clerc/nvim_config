@@ -5,10 +5,24 @@ return function()
     return
   end
 
+  local status_mason_null_ok, mason_null = pcall(require, "mason-null-ls")
+  if not status_mason_null_ok then
+    vim.notify("Problem with mason-null-ls")
+    return
+  end
+
   local formatting = null_ls.builtins.formatting
   local diagnostics = null_ls.builtins.diagnostics
 
   local opts_mason = {
+    ensure_installed = {
+      "stylua",
+      "jq",
+      "black",
+    }
+  }
+
+  local opts = {
     sources = {
       formatting.prettier.with {},
       formatting.black.with { extra_args = { "--fast" } },
@@ -17,5 +31,6 @@ return function()
     },
   }
 
-  null_ls.setup(opts_mason)
+  null_ls.setup(opts)
+  mason_null.setup(opts_mason)
 end
