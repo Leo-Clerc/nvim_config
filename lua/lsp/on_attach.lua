@@ -1,9 +1,9 @@
 return function(client, bufnr)
   local keymap = function(keys, func, desc)
     if desc then
-      desc = "LSP: ".. desc
+      desc = "LSP: " .. desc
     end
-    vim.api.nvim_buf_set_keymap(bufnr, "n", keys, func, { noremap = true, silent = true, desc = desc})
+    vim.api.nvim_buf_set_keymap(bufnr, "n", keys, func, { noremap = true, silent = true, desc = desc })
   end
 
   keymap("<Leader>lr", "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename")
@@ -18,10 +18,11 @@ return function(client, bufnr)
   keymap("<C-m>", "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature documentation")
   keymap("<Leader>ln", "<CMD>lua vim.diagnostic.goto_next()<CR>", "Goto next diagnostic")
   keymap("<Leader>lp", "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Goto prev diagnostic")
+  keymap("<Leader>lf", "<CMD>lua vim.lsp.buf.format()<CR>", "Format buffer")
 
-  	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-		vim.lsp.buf.format()
-	end, { desc = "Format current buffer with LSP" })
+  vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+    vim.lsp.buf.format()
+  end, { desc = "Format current buffer with LSP" })
 
   if client.server_capabilities.documentHighlight then
     vim.api.nvim_exec(
@@ -35,5 +36,4 @@ return function(client, bufnr)
       false
     )
   end
-
 end
