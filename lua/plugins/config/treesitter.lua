@@ -9,7 +9,7 @@ return function()
     auto_install = true,
     highlight = {
       enable = true,
-      disable = {"glsl"},
+      disable = {--[[ "glsl" ]]},
       aditional_vim_regex_highlighting = false,
     },
   }
