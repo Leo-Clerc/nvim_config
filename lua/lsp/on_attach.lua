@@ -18,6 +18,7 @@ return function(client, bufnr)
   keymap("<C-m>", "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature documentation")
   keymap("<Leader>ln", "<CMD>lua vim.diagnostic.goto_next()<CR>", "Goto next diagnostic")
   keymap("<Leader>lp", "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Goto prev diagnostic")
+  keymap("<Leader>la", "<CMD>lua vim.diagnostic.open_float()<CR>", "Display diagnostic on current line")
   keymap("<Leader>lf", "<CMD>lua vim.lsp.buf.format()<CR>", "Format buffer")
 
   vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
