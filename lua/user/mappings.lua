@@ -91,4 +91,26 @@ keymap("n", "<Space>h'", ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
 keymap("n", "<Space>h(", ':lua require("harpoon.ui").nav_file(5)<CR>', opts)
 keymap("n", "<Space>h-", ':lua require("harpoon.ui").nav_file(6)<CR>', opts)
 
+-- Debugger DAP
+keymap("n", "<Space>dd", ":lua require('dap').continue()<CR>", opts)
+keymap("n", "<Space>ds", ":lua require('dap').terminate()<CR>", opts)
+keymap("n", "<Space>db", ":lua require('dap').toggle_breakpoint()<CR>", opts)
+keymap("n", "<Space>dB", ":lua require('dap').clear_breakpoints()<CR>", opts)
+keymap("n", "<Space>dp", ":lua require('dap').pause()<CR>", opts)
+keymap("n", "<Space>dp", ":lua require('dap').restart_frame()<CR>", opts)
+keymap("n", "<Space>dp", ":lua require('dap').pause()<CR>", opts)
+keymap("n", "<Space>dt", ":lua require('dap').repl.toggle()<CR>", opts)
+keymap("n", "<Space>dc", ":lua require('dap').run_to_cursor()<CR>", opts)
+keymap("n", "<Space>dc", ":lua require('dap').run_to_cursor()<CR>", opts)
+keymap("n", "<Space>dl", ":lua require('dap').step_into()<CR>", opts)
+keymap("n", "<F9>", ":lua require('dap').step_into()<CR>", opts)
+keymap("n", "<Space>dj", ":lua require('dap').step_over()<CR>", opts)
+keymap("n", "<F10>", ":lua require('dap').step_over()<CR>", opts)
+keymap("n", "<Space>dh", ":lua require('dap').step_out()<CR>", opts)
+
+-- Debugger UI
+keymap("n", "<Space>dE", ":lua require('dapui').eval()<CR>", opts)
+keymap("n", "<Space>du", ":lua require('dapui').toggle()<CR>", opts)
+keymap("n", "<Space>dH", ":lua require('dap.ui.widgets').hover()<CR>", opts)
+
 -- Help

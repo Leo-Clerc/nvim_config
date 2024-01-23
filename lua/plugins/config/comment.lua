@@ -4,7 +4,7 @@ return function()
     return
   end
 
-  opts = {
+  local opts = {
     padding = true,
     sticky = true,
     ignore = nil,
