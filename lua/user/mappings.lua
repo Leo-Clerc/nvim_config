@@ -1,9 +1,9 @@
-local opts = { noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
 -- Remap leader key
-keymap("n","<Space>", "<Nop>", opts)
+keymap("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -23,15 +23,15 @@ keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 local azerty = true
 
 if azerty then
-  keymap("n", "à", "@", opts)
-  keymap("n", "è", "`", opts)
-  keymap("n", "é", "~", opts)
-  keymap("n", "µ", "#", opts)
-  keymap("n", "ç", "{", opts)
-  keymap("n", "<C-ç>", "}", opts)
-  keymap("n", "ç", "{", opts)
-  keymap("n", "^", "^<Space>", opts)
-  keymap("i", "§", "\\", opts)
+	keymap("n", "à", "@", opts)
+	keymap("n", "è", "`", opts)
+	keymap("n", "é", "~", opts)
+	keymap("n", "µ", "#", opts)
+	keymap("n", "ç", "{", opts)
+	keymap("n", "<C-ç>", "}", opts)
+	keymap("n", "ç", "{", opts)
+	keymap("n", "^", "^<Space>", opts)
+	keymap("i", "§", "\\", opts)
 end
 
 -- Buffer
@@ -42,22 +42,22 @@ keymap("n", "<Space>qq", ":bdelete<CR>", opts)
 
 -- Useful miscalleneous mappings
 
-keymap("n","<C-u>", "<C-u>zz", opts)
-keymap("n","<C-d>", "<C-d>zz", opts)
-keymap("n","<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
 
 -- Nvim tree :
 local nvim_tree_available, _ = pcall(require, "plugins.nvim-tree")
 if nvim_tree_available then
-  keymap('n', '<Leader>e', ":NvimTreeToggle<CR>", opts)
-  keymap('n', '<Leader>o', ":NvimTreeFocus<CR>", opts)
+	keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
+	keymap("n", "<Leader>o", ":NvimTreeFocus<CR>", opts)
 else
-  vim.notify("nvim-tree isn't available")
-  return
+	vim.notify("nvim-tree isn't available")
+	return
 end
 
 -- Telescope
-keymap("n", '<Leader>ff', ':lua require("telescope.builtin").find_files()<CR>', opts)
+keymap("n", "<Leader>ff", ':lua require("telescope.builtin").find_files()<CR>', opts)
 keymap("n", "<Leader>fw", ":Telescope live_grep<CR>", opts)
 keymap("n", "<Leader>fgf", ':lua require("telescope.builtin").git_files()<CR>', opts)
 keymap("n", "<Leader>fgC", ':lua require("telescope.builtin").git_commits()<CR>', opts)
@@ -77,16 +77,18 @@ keymap("n", "<Leader>gpl", ":G pull<CR>", opts)
 keymap("n", "<Leader>gll", ":vert bo G log<CR>", opts)
 keymap("n", "<Leader>gls", ":vert bo G log --oneline<CR>", opts)
 
+-- Mine-sweeper
+
+keymap("n", "<Leader>pp", ":MineSweep hard -t<CR>", opts)
+
 -- Harpoon
-keymap("n", "<Space>hh", ':lua require("harpoon.mark").add_file()<CR>' , opts)
+keymap("n", "<Space>hh", ':lua require("harpoon.mark").add_file()<CR>', opts)
 keymap("n", "<Space>hm", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
-keymap("n", "<Space>h&",  ':lua require("harpoon.ui").nav_file(1)<CR>', opts)
-keymap("n", "<Space>hé",  ':lua require("harpoon.ui").nav_file(2)<CR>', opts)
-keymap("n", '<Space>h"',  ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
-keymap("n", "<Space>h'",  ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
-keymap("n", "<Space>h(",  ':lua require("harpoon.ui").nav_file(5)<CR>', opts)
-keymap("n", "<Space>h-",  ':lua require("harpoon.ui").nav_file(6)<CR>', opts)
+keymap("n", "<Space>h&", ':lua require("harpoon.ui").nav_file(1)<CR>', opts)
+keymap("n", "<Space>hé", ':lua require("harpoon.ui").nav_file(2)<CR>', opts)
+keymap("n", '<Space>h"', ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
+keymap("n", "<Space>h'", ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
+keymap("n", "<Space>h(", ':lua require("harpoon.ui").nav_file(5)<CR>', opts)
+keymap("n", "<Space>h-", ':lua require("harpoon.ui").nav_file(6)<CR>', opts)
 
 -- Help
-
-
