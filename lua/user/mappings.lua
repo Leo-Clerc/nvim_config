@@ -107,6 +107,7 @@ keymap("n", "<F9>", ":lua require('dap').step_into()<CR>", opts)
 keymap("n", "<Space>dj", ":lua require('dap').step_over()<CR>", opts)
 keymap("n", "<F10>", ":lua require('dap').step_over()<CR>", opts)
 keymap("n", "<Space>dh", ":lua require('dap').step_out()<CR>", opts)
+keymap("n", "<F8>", ":lua require('dap').step_out()<CR>", opts)
 
 -- Debugger UI
 keymap("n", "<Space>dE", ":lua require('dapui').eval()<CR>", opts)
@@ -114,3 +115,4 @@ keymap("n", "<Space>du", ":lua require('dapui').toggle()<CR>", opts)
 keymap("n", "<Space>dH", ":lua require('dap.ui.widgets').hover()<CR>", opts)
 
 -- Help
+keymap("n", "<Space>hh", ":exe 'edit' stdpath('config').'/lua/user/mappings.md'<CR>", opts)
