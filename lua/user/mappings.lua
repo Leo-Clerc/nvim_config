@@ -115,4 +115,4 @@ keymap("n", "<Space>du", ":lua require('dapui').toggle()<CR>", opts)
 keymap("n", "<Space>dH", ":lua require('dap.ui.widgets').hover()<CR>", opts)
 
 -- Help
-keymap("n", "<Space>hh", ":exe 'edit' stdpath('config').'/lua/user/mappings.md'<CR>", opts)
+keymap("n", "<Space>kk", ":exe 'edit' stdpath('config').'/lua/user/mappings.md'<CR>", opts)
