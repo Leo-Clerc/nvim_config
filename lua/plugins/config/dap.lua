@@ -21,6 +21,16 @@ return function()
 		request = "launch",
 		program = "$file",
 	}
-
+  adapters.gdb = {
+    id = "gdb",
+    type = "executable",
+    command = "gdb",
+    args = {'--quiet', '--interpreter=dap'},
+  }
+  dap.configuration.c = {
+    {
+      name = 
+    }
+  }
 
 end

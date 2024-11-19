@@ -1,4 +1,7 @@
 return {
+  function (config)
+    require('mason-nvim-dap').default_setup(config)
+  end,
 	python = function(config)
 		local dap = require("dap")
 		dap.adapters.python = {
@@ -33,5 +36,25 @@ return {
         -- end;
 			},
 		}
+    require('mason-nvim-dap').default_setup(config)
 	end,
+  codelldb = function(config)
+    local dap = require('dap')
+    dap.adapters.codelldb = {
+      id = "lldb",
+      type = "server",
+      port = "${port}",
+      executable = {
+        command = vim.fn.stdpath("data") .. '\\mason\\bin\\codelldb',
+        args = {"--port", "${port}"},
+      },
+    }
+    dap.configurations.c = {{
+      name = "Run server (codelldb)",
+      type = "codelldb",
+      request = "launch",
+    },
+    require('mason-nvim-dap').default_setup(config)
+  }
+  end
 }
