@@ -19,6 +19,11 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
+-- Terminal
+
+keymap("n", "<Leader>t", ":term <CR>", opts)
+keymap("t", "<C-q>", "<C-\\><C-n>", opts)
+
 -- Keybinding for french azerty. Change boolean if qwerty. Or delete, obviously
 local azerty = true
 
@@ -99,7 +104,6 @@ keymap("n", "<Space>db", ":lua require('dap').toggle_breakpoint()<CR>", opts)
 keymap("n", "<Space>dB", ":lua require('dap').clear_breakpoints()<CR>", opts)
 keymap("n", "<Space>dp", ":lua require('dap').pause()<CR>", opts)
 keymap("n", "<Space>dp", ":lua require('dap').restart_frame()<CR>", opts)
-keymap("n", "<Space>dp", ":lua require('dap').pause()<CR>", opts)
 keymap("n", "<Space>dt", ":lua require('dap').repl.toggle()<CR>", opts)
 keymap("n", "<Space>dc", ":lua require('dap').run_to_cursor()<CR>", opts)
 keymap("n", "<Space>dc", ":lua require('dap').run_to_cursor()<CR>", opts)
@@ -114,6 +118,10 @@ keymap("n", "<F8>", ":lua require('dap').step_out()<CR>", opts)
 keymap("n", "<Space>dE", ":lua require('dapui').eval()<CR>", opts)
 keymap("n", "<Space>du", ":lua require('dapui').toggle()<CR>", opts)
 keymap("n", "<Space>dH", ":lua require('dap.ui.widgets').hover()<CR>", opts)
+
+-- Builds
+keymap("n", "<Space>bl", ":OverseerToggle<CR>", opts)
+keymap("n", "<Space>br", ":OverseerRun<CR>", opts)
 
 -- Help
 keymap("n", "<Space>kk", ":exe 'edit' stdpath('config').'/lua/user/mappings.md'<CR>", opts)
