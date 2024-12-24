@@ -66,4 +66,24 @@
 
 ## Debugger
 
--<Space>d
+- <Space>dd continue
+- <Space>ds terminate session
+- <Space>db set breakpoint
+- <Space>dB clear breakpoint
+- <Space>dp pause session
+- <Space>dr restart session
+- <Space>dc run to cursor
+- <Space>dt toggle repl
+- <F8> step out
+- <Space>dh step out
+- <F9> step into
+- <Space>dl step into
+- <F10> step over
+- <Space>dE evaluate
+- <Space>du toggle ui
+- <Space>dH hover in debugg
+
+## Terminal
+
+- <Space>t open terminal
+- <C-q> exit terminal
