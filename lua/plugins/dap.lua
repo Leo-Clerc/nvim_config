@@ -4,7 +4,7 @@ return {
     {
       "jay-babu/mason-nvim-dap.nvim",
       cmd = { "DapInstall", "DapUninstall" },
-      opts = { handlers = {} },
+      opts = {},
       config = require("plugins.config.mason-nvim-dap"),
     },
     {

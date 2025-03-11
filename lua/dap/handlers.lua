@@ -18,7 +18,7 @@ return {
 			{
 				type = "python",
 				request = "launch",
-				name = "launch file",
+				name = "Launch file",
 				program = "${file}",
         -- TODO: Check if this is useful
         -- pythonPath = function()
@@ -36,7 +36,7 @@ return {
         -- end;
 			},
 		}
-    require('mason-nvim-dap').default_setup(config)
+    require('mason-nvim-dap').default_setup({})
 	end,
   codelldb = function(config)
     local dap = require('dap')
@@ -53,8 +53,15 @@ return {
       name = "Run server (codelldb)",
       type = "codelldb",
       request = "launch",
-    },
-    require('mason-nvim-dap').default_setup(config)
+      program = function()
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '\\', 'file')
+      end,
+      cwd = '${workspaceFolder}',
+      stopOnEntry = false,
+      args = {},
+      console = 'integratedTerminal',
+      },
+    require('mason-nvim-dap').default_setup({})
   }
   end
 }
