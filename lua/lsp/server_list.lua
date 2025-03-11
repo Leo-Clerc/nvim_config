@@ -6,7 +6,6 @@ return {
   "html",
   "jsonls",
   "tsserver",
-  "ltex",
   "tailwindcss",
   "marksman",
 }
