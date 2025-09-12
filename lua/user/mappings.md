@@ -18,7 +18,8 @@
 - <Shift>k to hover in documentation.
 - <Space>ln to go to next diagnostic.
 - <Space>lp to go to previous diagnostic.
-- <Space>lf to format buffer
+- <Space>lf to format buffer.
+- <Space>la to display diagnostic on current line.
 
 ## Harpoon mappings
 
