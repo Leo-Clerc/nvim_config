@@ -23,4 +23,24 @@ return {
          }
      }
  end,
+ ["texlab"] = function ()
+   local on_attach = function(client, bufnr)
+            vim.opt.wrap = true
+            vim.opt.linebreak = true
+
+            vim.keymap.set("n", "j", "gj", { buffer = bufnr })
+            vim.keymap.set("n", "k", "gk", { buffer = bufnr })
+        end
+
+        require("lspconfig").texlab.setup({
+            on_attach = on_attach,
+            capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            filetypes = { "tex" }, -- Spécifie les types de fichiers
+            settings = {
+                texlab = {
+                    formatter = "latexindent"
+                }
+            }
+        })
+ end
 }

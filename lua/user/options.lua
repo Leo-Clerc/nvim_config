@@ -21,4 +21,10 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "plaintex",
+  callback = function()
+    vim.bo.filetype = "tex"
+  end,
+})
 vim.loader.enable()
