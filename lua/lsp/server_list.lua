@@ -1,11 +1,11 @@
 return {
   "pyright",
   "lua_ls",
+  "vimls",
   "angularls",
   "cssls",
   "html",
   "jsonls",
-  "tsserver",
   "tailwindcss",
-  "marksman",
+  "rust_analyzer",
 }
