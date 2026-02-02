@@ -94,5 +94,4 @@ return function()
       native_menu = false,
     },
   })
-   
 end
