@@ -1,11 +1,12 @@
 return function()
   local cmp_ok, cmp = pcall(require, "cmp")
   if not cmp_ok then
+    vim.notify("CMP disabled")
     return
   end
   local snip_ok, luasnip = pcall(require, "luasnip")
   if not snip_ok then
-    return
+    vim.notify("Luasnip unavailable")
   end
   local check_backspace = function()
     local col = vim.fn.col "." - 1
