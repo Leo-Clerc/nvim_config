@@ -29,11 +29,11 @@ return function()
   }
 
   masondap.setup(masondap_opts)
-  -- require("mason-lspconfig")
-  local status_mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-  if not status_mason_lspconfig_ok then
-    vim.notify("mason_lspconfig unavailable, but in mason file")
-  end
+  -- -- require("mason-lspconfig")
+  -- local status_mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+  -- if not status_mason_lspconfig_ok then
+  --   vim.notify("mason_lspconfig unavailable, but in mason file")
+  -- end
   local signs = require "icons.lsp"
 
   for _, sign in ipairs( signs ) do
