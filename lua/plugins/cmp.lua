@@ -2,7 +2,9 @@ return {
   {
     "L3MON4D3/LuaSnip",
     dependencies = { "rafamadriz/friendly-snippets"},
+    version = "v2.*",
     config = require "plugins.config.luasnip",
+    build = "make install_jsregexp"
   },
   {
     "hrsh7th/nvim-cmp",
