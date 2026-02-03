@@ -60,6 +60,16 @@
 - <Space>fgC search git commits
 - <Space>fgb search buffers
 
+## Mason
+
+- <Space>mm Open Mason UI
+- <Space>mu Update Mason packages
+- <Space>ml Open Mason log
+
+## Lazy
+
+- <Space>ll Open Lazy UI
+
 ## Sidebar
 
 - <Space>e open file tree

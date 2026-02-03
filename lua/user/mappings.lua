@@ -29,14 +29,24 @@ local azerty = true
 
 if azerty then
   keymap("n", "à", "@", opts)
-  keymap("n", "è", "`", opts)
-  keymap("n", "é", "~", opts)
+  keymap("n", "7", "`", opts)
+  keymap("n", "2", "~", opts)
   keymap("n", "µ", "#", opts)
-  keymap("n", "ç", "{", opts)
+  keymap("n", "4", "{", opts)
   keymap("n", "<C-ç>", "}", opts)
   keymap("n", "ç", "{", opts)
-  keymap("n", "^", "^<Space>", opts)
+  keymap("n", "^", "^h", opts)
   keymap("i", "§", "\\", opts)
+  keymap("n", "à", "0", opts)
+  keymap("n", "&", "1", opts)
+  keymap("n", "é", "2", opts)
+  keymap("n", '"', "3", opts)
+  keymap("n", "'", "4", opts)
+  keymap("n", "(", "5", opts)
+  keymap("n", "-", "6", opts)
+  keymap("n", "è", "7", opts)
+  keymap("n", "_", "8", opts)
+  keymap("n", "ç", "9", opts)
 end
 
 -- Buffer
@@ -68,6 +78,15 @@ keymap("n", "<Leader>fgf", ':lua require("telescope.builtin").git_files()<CR>', 
 keymap("n", "<Leader>fgC", ':lua require("telescope.builtin").git_commits()<CR>', opts)
 keymap("n", "<Leader>fgc", ':lua require("telescope.builtin").git_bcommits()<CR>', opts)
 keymap("n", "<Leader>fb", ':lua require("telescope.builtin").buffers()<CR>', opts)
+
+-- Mason
+keymap("n", "<Leader>mm", ':Mason<CR>', opts)
+keymap("n", "<Leader>mu", ':MasonUpdate<CR>', opts)
+keymap("n", "<Leader>ml", ':MasonLog<CR>', opts)
+
+--Lazy
+
+keymap("n", "<Leader>ll", ':Lazy<CR>', opts)
 
 -- Fugitive
 keymap("n", "<Leader>gg", ":vert bo G<CR>", opts)
